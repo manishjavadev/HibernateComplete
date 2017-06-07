@@ -5,10 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -16,13 +13,13 @@ public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "emp_id")
+	@Column(name = "EMP_ID")
 	private long id;
 
-	@Column(name = "emp_name")
+	@Column(name = "EMP_NAME")
 	private String name;
 
-	@Column(name = "emp_salary")
+	@Column(name = "EMP_SALARY")
 	private double salary;
 
 	public Employee() {
