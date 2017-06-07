@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.manish.javadev.model">
+	<class name="Customer">
+		<!-- This is mapping for composite key -->
+		<composite-id name="accountId" class="AccountId">
+			<key-property name="accno" type="int" />
+			<key-property name="atype" />
+			<key-property name="bcode" type="int" />
+		</composite-id>		
+		
+		<property name="fname" column="cname" />
+		<property name="lname" />
+		<property name="age" column="age" type="int" />
+	</class>
+</hibernate-mapping>

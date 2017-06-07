@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.manish.javadev.model">
+	<class name="Customer">
+		<id name="cid" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="fname" />
+		<property name="lname" />
+		<property name="email" />
+		<property name="phone" type="long" />
+		<property name="status" />
+	</class>
+
+	<sql-query name="GET_SCALER_RETURN">
+		
+		<return-scalar column="name" type="string" />
+		<return-scalar column="lname" type="string" />
+		
+		<![CDATA[select cust.fname AS name,cust.lname AS lname
+		from customer cust where
+		cust.fname=:fname
+		]]>
+		
+	</sql-query>
+
+</hibernate-mapping>
