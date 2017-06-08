@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.manish.javadev.model">
+
+	<class name="Student" table="Student" discriminator-value="STU">
+		<id name="sid" type="int">
+			<generator class="increment" />
+		</id>
+		<discriminator column="TYPE" type="string" />
+		<property name="sname" />
+		<property name="city" />
+
+		<subclass name="WeekdayStudent" discriminator-value="WDS">
+			<property name="qualification" />
+			<property name="percentage" />
+			<property name="timings" />
+			<property name="branch" />
+		</subclass>
+
+		<subclass name="WeekendStudent" discriminator-value="WES">
+			<property name="company" />
+			<property name="email" />
+			<property name="timings" />
+			<property name="branch" />
+		</subclass>
+
+	</class>
+</hibernate-mapping>

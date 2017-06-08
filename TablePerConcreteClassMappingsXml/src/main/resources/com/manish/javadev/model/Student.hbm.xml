@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.manish.javadev.model">
+
+	<class name="Student" table="Student">
+		<id name="sid" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property name="sname" />
+		<property name="city" />
+
+		<union-subclass name="WeekdayStudent" table="WDStudent">
+			<property name="qualification" />
+			<property name="percentage" />
+			<property name="timings" />
+			<property name="branch" />
+		</union-subclass>
+
+		<union-subclass name="WeekendStudent" table="WEStudent">
+			<property name="company" />
+			<property name="email" />
+			<property name="timings" />
+			<property name="branch" />
+		</union-subclass>
+
+	</class>
+</hibernate-mapping>
